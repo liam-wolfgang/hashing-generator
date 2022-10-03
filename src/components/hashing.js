@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { sha1, sha256, sha384, sha512 } from 'crypto-hash';
+import { sha256 } from 'crypto-hash';
 import './hashing.css';
+import logo from './logo/gsr.png'
 
 export default function HashingForm() {
-    const [algorithms] = useState(['sha1', 'sha256', 'sha384', 'sha512']);
+    const [algorithms] = useState(['sha256']);
     let [text_input, setTextInput] = useState('');
-    let [file_input, setFileInput] = useState('');
-    let [algorithm, setAlgorithm] = useState('sha1');
+    let [algorithm, setAlgorithm] = useState('sha256');
     let [output, setOutput] = useState('');
     // For handling text input
     const handleTextInput = async (e) => {
@@ -16,15 +16,9 @@ export default function HashingForm() {
         let result = '';
 
         // Get the current active algorithm and hash the value using it.
-        if (algorithm == 'sha1') {
-            result = await sha1(value);
-        } else if (algorithm == 'sha256') {
+        if (algorithm === 'sha256') {
             result = await sha256(value);
-        } else if (algorithm == 'sha384') {
-            result = await sha384(value);
-        } else if (algorithm == 'sha512') {
-            result = await sha512(value);
-        }
+        } 
 
         // Set the hashed text as output
         setOutput(result);
@@ -33,38 +27,6 @@ export default function HashingForm() {
         setTextInput(value);
     }
 
-    // For handling file input
-    const handleFileInput = (e) => {
-
-        // Initializing the file reader
-        const fr = new FileReader();
-
-        // Listening to when the file has been read.
-        fr.onload = async () => {
-
-            let result = '';
-
-            // Hashing the content based on the active algorithm
-            if (algorithm == 'sha1') {
-                result = await sha1(fr.result);
-            } else if (algorithm == 'sha256') {
-                result = await sha256(fr.result);
-            } else if (algorithm == 'sha384') {
-                result = await sha384(fr.result);
-            } else if (algorithm == 'sha512') {
-                result = await sha512(fr.result);
-            }
-
-            // Setting the hashed text as the output
-            setOutput(result);
-
-            // Setting the content of the file as file input
-            setFileInput(fr.result);
-        }
-
-        // Reading the file.
-        fr.readAsText(e.target.files[0]);
-    }
 
     // For handling algorithm change
     const handleAlgorithmChange = async (e) => {
@@ -78,35 +40,27 @@ export default function HashingForm() {
         if (text_input) {
 
             // Hash the text based on the selected algorithm
-            if (value == 'sha1') {
-                result = await sha1(text_input);
-            } else if (value == 'sha256') {
+            if (value === 'sha256') {
                 result = await sha256(text_input);
-            }
-            else if (value == 'sha384') {
-                result = await sha384(text_input);
-            }
-            else if (value == 'sha512') {
-                result = await sha512(text_input);
-            }
+            } 
 
         }
 
-        // Check if we have a file input
-        if (file_input) {
+        // // Check if we have a file input
+        // if (file_input) {
 
-            // Hash the file content based on the selected algorithm
-            if (value == 'sha1') {
-                result = await sha1(file_input);
-            } else if (value == 'sha256') {
-                result = await sha256(file_input);
-            } else if (value == 'sha384') {
-                result = await sha384(file_input);
-            } else if (value == 'sha512') {
-                result = await sha512(file_input);
-            }
+        //     // Hash the file content based on the selected algorithm
+        //     if (value == 'sha1') {
+        //         result = await sha1(file_input);
+        //     } else if (value == 'sha256') {
+        //         result = await sha256(file_input);
+        //     } else if (value == 'sha384') {
+        //         result = await sha384(file_input);
+        //     } else if (value == 'sha512') {
+        //         result = await sha512(file_input);
+        //     }
 
-        }
+        // }
 
         // Set the selected algorithm
         setAlgorithm(value);
@@ -118,29 +72,31 @@ export default function HashingForm() {
     return (
         <div className='hashing-container'>
             <div className='hashing-content'>
-
+                <div className='Logo'>
+                    <img src={logo} width="100" height="100%" />
+                </div>
                 <div className="hashing-form">
-                    <h4 className="hashing-form-heading">Input</h4>
+                    <h1 className="hashing-form-heading">256 Hash Calulator </h1>
                     <form>
                         <div className="form-group">
                             <label htmlFor="text-input">Text</label>
                             <input type="text" className="form-control" id="text-input" placeholder='Write some text' value={text_input} onChange={handleTextInput} />
                         </div>
-                        <div className="form-group">
+                        {/* <div className="form-group">
                             <label htmlFor="file-input">File Input</label>
                             <input type="file" className="form-control" id="file-input" onChange={handleFileInput} />
-                        </div>
+                        </div> */}
                     </form>
                 </div>
 
                 <div className="hashing-algorithms">
-                    <h4 className="hashing-algorithms-heading">Algorithms</h4>
+                    <h4 className="hashing-algorithms-heading">Algorithm</h4>
                     <div className="hashing-algorithms-list">
                         {
                             algorithms.map(algo => {
                                 return (
                                     <div className="form-check" key={algo}>
-                                        <input className="form-check-input" type="radio" name="algorithm" id={algo} value={algo} checked={algorithm === algo} onChange={handleAlgorithmChange} />
+                                        {/* <input className="form-check-input" type="radio" name="algorithm" id={algo} value={algo} checked={algorithm === algo} onChange={handleAlgorithmChange} /> */}
                                         <label className="form-check-label" htmlFor={algo}>
                                             {algo}
                                         </label>
