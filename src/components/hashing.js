@@ -72,9 +72,6 @@ export default function HashingForm() {
     return (
         <div className='hashing-container'>
             <div className='hashing-content'>
-                <div className='Logo'>
-                    <img src={logo} width="100" height="100%" />
-                </div>
                 <div className="hashing-form">
                     <h1 className="hashing-form-heading">256 Hash Calulator </h1>
                     <form>

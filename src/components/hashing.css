@@ -1,6 +1,6 @@
 body {
-    background: rgb(255, 255, 255);
-    color: #000000;
+    background: #121c23;
+    color: #fff;
 }
 
 .hashing-container {
@@ -21,14 +21,14 @@ body {
 .form-group label {
     width: 100%;
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 1.3em;
     font-weight: bold;
 }
 
 .form-group input[type="text"] {
     width: 94%;
     padding: 20px;
-    border: 1px solid #d4d4d5;
+    border: 1px solid #fff;
     border-radius: 10px;
     margin-bottom: 5px;
 }
@@ -40,7 +40,7 @@ body {
 
 .hashed-output .hashed-algorithm-container {
     width: 100%;
-    border: 1px solid #d4d4d5;
+    border: 1px solid #fff;
     border-radius: 10px;
 }
 
@@ -52,7 +52,7 @@ body {
 
 .hashing-form-heading {
     font-weight: bold;
-    color: rgb(0, 0, 0);
+    color: #fff;
 }
 
 .form-check-label {
