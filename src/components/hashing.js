@@ -73,10 +73,10 @@ export default function HashingForm() {
         <div className='hashing-container'>
             <div className='hashing-content'>
                 <div className="hashing-form">
-                    <h1 className="hashing-form-heading">256 Hash Calulator </h1>
+                    <h1 className="hashing-form-heading">SHA-256 Hashing Calculator</h1>
                     <form>
                         <div className="form-group">
-                            <label htmlFor="text-input">Text</label>
+                            <label htmlFor="text-input">Input</label>
                             <input type="text" className="form-control" id="text-input" placeholder='Write some text' value={text_input} onChange={handleTextInput} />
                         </div>
                         {/* <div className="form-group">
@@ -86,14 +86,14 @@ export default function HashingForm() {
                     </form>
                 </div>
 
-                <div className="hashing-algorithms">
+                {/* <div className="hashing-algorithms">
                     <h4 className="hashing-algorithms-heading">Algorithm</h4>
                     <div className="hashing-algorithms-list">
                         {
                             algorithms.map(algo => {
                                 return (
                                     <div className="form-check" key={algo}>
-                                        {/* <input className="form-check-input" type="radio" name="algorithm" id={algo} value={algo} checked={algorithm === algo} onChange={handleAlgorithmChange} /> */}
+                                        { <input className="form-check-input" type="radio" name="algorithm" id={algo} value={algo} checked={algorithm === algo} onChange={handleAlgorithmChange} /> }
                                         <label className="form-check-label" htmlFor={algo}>
                                             {algo}
                                         </label>
@@ -102,7 +102,7 @@ export default function HashingForm() {
                             }
                             )}
                     </div>
-                </div>
+                </div> */}
 
                 <div className="hashed-output">
                     <h4 className="hashed-algorithm-heading">Output</h4>

@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
 body {
-    background: #121c23;
+    background: transparent!important;
     color: #fff;
+    font-family: 'Oswald', sans-serif;
 }
 
 .hashing-container {
@@ -12,7 +15,7 @@ body {
 }
 
 .hashing-content {
-    width: 60%;
+    width: 80%;
     margin: 0px auto;
     padding: 10px;
     /* box-shadow: 0 1px 3px #d4d4d5, 0 0 0 1px #d4d4d5; */
